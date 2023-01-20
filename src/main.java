@@ -34,7 +34,7 @@ class UserInput
         if ((a==b) || (a==c) || (a==d) || (b==c) || (b==d) || (c==d))
         {
             return false;
-        } 
+        }
         return true;
     }
     public static boolean allZero(int[] arr)
@@ -83,6 +83,18 @@ class UserInput
             temp[10][2]+= 20;
         }
         return temp;
+    }
+    public static boolean isNotExist(double[][] matrix, double[] arr)
+    {
+        boolean r = true;
+        for (int i = 0 ; i<24 ; i++)
+        {
+            if (matrix[i][0] == arr[0] & matrix[i][1] == arr[1] & matrix[i][2] == arr[2] & matrix[i][3] == arr[3])
+            {
+                r = false;
+            }
+        }
+        return r;
     }
     public static double count(int[] arrOpr, double[] arrNumber, int[] temp)
     {
@@ -323,24 +335,51 @@ class UserInput
         makeMatrix(config);
         double[][] displayNum = new double[24][4];
         makeMatrix(displayNum);
-        
+        double[] tconfig = new double[4];
         for (int i = 0 ; i < 24; i++)
         {
             for (int j = 0; j<4; j++)
             {
                 if (config[i][j]==0)
                 {
-                    config[i][j] = arr[0];
+                    tconfig[j] = arr[0];
                 } else if (config[i][j]==1)
                 {
-                    config[i][j] = arr[1];
+                    tconfig[j] = arr[1];
                 } else if (config[i][j]==2)
                 {
-                    config[i][j] = arr[2];
+                    tconfig[j] = arr[2];
                 }
                 else if (config[i][j]==3)
                 {
-                    config[i][j] = arr[3];
+                    tconfig[j] = arr[3];
+                }
+            }
+            if (isNotExist(config, tconfig))
+            {
+                for (int j = 0 ; j<4 ; j++)
+                {
+                    if (config[i][j]==0)
+                    {
+                        config[i][j] = arr[0];
+                    } else if (config[i][j]==1)
+                    {
+                        config[i][j] = arr[1];
+                    } else if (config[i][j]==2)
+                    {
+                        config[i][j] = arr[2];
+                    }
+                    else if (config[i][j]==3)
+                    {
+                        config[i][j] = arr[3];
+                    }
+                }
+            }
+            else
+            {
+                for (int j = 0 ; j<4 ; j++)
+                {
+                    config[i][j] = 0;
                 }
             }
         }
