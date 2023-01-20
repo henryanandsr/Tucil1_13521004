@@ -455,7 +455,7 @@ class UserInput
             System.out.print("Masukkan nama file : ");
             String name = sc.next();
             try (FileWriter fWriter = new FileWriter(
-                "./cek/" + name)) 
+                "./test/" + name)) 
             {
                 fWriter.write("===========================" + "\n");
                 fWriter.write("LIST KARTU" + "\n");

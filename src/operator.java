@@ -38,7 +38,7 @@ public class operator {
     {
         if(a==1)
         {
-            return "1";
+            return "A";
         }
         else if(a == 2)
         {
@@ -78,15 +78,15 @@ public class operator {
         }
         else if(a == 11)
         {
-            return "11";
+            return "J";
         }
         else if(a == 12)
         {
-            return "12";
+            return "Q";
         }
         else
         {
-            return "13";
+            return "K";
         }
     }
 }
